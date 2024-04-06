@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Aplicación de Tareas</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <header>
+        <h1>Bienvenido a Mi Aplicación de Tareas</h1>
+    </header>
+    <main>
+        <section>
+            <h2>¿Qué puedo hacer aquí?</h2>
+            <p>Con esta aplicación, puedes gestionar tus tareas de manera eficiente. Puedes crear nuevas tareas, ver la lista de tareas existentes, editar tareas y eliminarlas.</p>
+        </section>
+        <section>
+            <h2>Empezar</h2>
+            <p>Empieza por <a href="{% url 'crear_tarea' %}">crear una nueva tarea</a> o <a href="{% url 'lista_tareas' %}">ver la lista de tareas</a> existentes.</p>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; {{ year }} Mi Aplicación de Tareas</p>
+    </footer>
+</body>
+</html>
