@@ -1,0 +1,17 @@
+{% extends 'layouts/app.html' %}
+
+{% block title %}Confirmar Eliminación de Tarea{% endblock %}
+
+{% block content %}
+    <h1>¿Estás seguro de que deseas eliminar esta tarea?</h1>
+    <p>Detalles de la tarea:</p>
+    <p>ID: {{ tarea.id }}</p>
+    <p>Descripción: {{ tarea.descripcion }}</p>
+    <p>Fecha de Creación: {{ tarea.fecha_creacion }}</p>
+    <form method="post">
+        {% csrf_token %}
+        <input type="submit" value="Confirmar Eliminar">
+    </form>
+    <a href="{% url 'lista_tareas' %}">Cancelar y Volver a la Lista de Tareas</a>
+{% endblock %}
+

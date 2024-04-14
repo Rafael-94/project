@@ -1,0 +1,184 @@
+/* Estilos generales */
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f0f8ff; /* Azul suave */
+}
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 20px;
+}
+
+/* Estilos de la barra de navegación */
+
+.navbar {
+  background-color: #4682b4; /* Azul acero */
+  padding: 10px;
+}
+
+.navbar a {
+  color: white;
+  text-decoration: none;
+  margin-right: 20px;
+}
+
+.navbar a:hover {
+  color: #f0f8ff; /* Azul suave */
+}
+
+/* Estilos del encabezado */
+
+header {
+  background-color: #4682b4; /* Azul acero */
+  color: white;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 36px;
+}
+
+/* Estilos del pie de página */
+
+footer {
+  background-color: #4682b4; /* Azul acero */
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+/* Estilos de las tarjetas de tarea */
+
+.card {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.card h2 {
+  margin-top: 0;
+}
+
+/* Estilos de los formularios */
+
+.form-container {
+  max-width: 500px;
+  margin: auto;
+  padding: 20px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.form-container h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.form-container label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.form-container input[type="text"],
+.form-container textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.form-container button {
+  background-color: #4682b4; /* Azul acero */
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 20px;
+  cursor: pointer;
+  width: 100%;
+}
+
+.form-container button:hover {
+  background-color: #36648b; /* Azul acero oscuro */
+}
+
+/* Estilos de los enlaces */
+
+a {
+  color: #4682b4; /* Azul acero */
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Estilos de la tabla */
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+th {
+  background-color: #4682b4; /* Azul acero */
+  color: white;
+}
+
+/* Estilos de los botones */
+
+.btn {
+  background-color: #4682b4; /* Azul acero */
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #36648b; /* Azul acero oscuro */
+}
+
+/* Estilos de las imágenes */
+
+.img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: auto;
+}
+
+.muy-urgente {
+  background-color: red;
+}
+
+.medio-urgente {
+  background-color: orange;
+}
+
+.poco-urgente {
+  background-color: blue;
+}
+
+/* Estilos para las filas de tareas marcadas como realizadas */
+tr.tarea-realizada {
+  background-color: lightgreen;
+}

@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from .models import Tarea
 from .forms import TareaForm
+from django.http import HttpResponseNotFound
 
 def index(request):
     # Esta función muestra la página de inicio
@@ -39,7 +40,7 @@ def editar_tarea(request, tarea_id):
         if form.is_valid():
             # Si el formulario es válido, guardamos los cambios en la tarea
             form.save()
-            return redirect('ver_tarea', tarea_id=tarea_id)  # Redirigimos al usuario a la página de detalles de la tarea
+            return redirect('lista_tareas')  # Redirigimos al usuario a la lista de tareas
     else:
         # Si la solicitud no es de tipo POST, mostramos un formulario prellenado con los datos de la tarea
         form = TareaForm(instance=tarea)
@@ -53,3 +54,16 @@ def borrar_tarea(request, tarea_id):
         tarea.delete()  # Eliminamos la tarea de la base de datos
         return redirect('lista_tareas')  # Redirigimos al usuario a la lista de tareas
     return render(request, 'borrar_tarea.html', {'tarea': tarea})  # Renderizamos la plantilla borrar_tarea.html y pasamos la tarea como contexto
+
+def marcar_realizada(request, tarea_id):
+    try:
+        tarea = Tarea.objects.get(pk=tarea_id)
+    except Tarea.DoesNotExist:
+        # Manejar el caso donde la tarea no existe
+        return redirect('lista_tareas')  # Redirigir a la lista de tareas
+    
+    tarea.realizada = True
+    tarea.save()
+    # Eliminar la tarea de la base de datos
+    tarea.delete()
+    return redirect('lista_tareas')

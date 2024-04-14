@@ -1,22 +1,30 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lista de Tareas</title>
-</head>
-<body>
+{% extends 'layouts/app.html' %}
+
+{% block title %}Lista de Tareas{% endblock %}
+
+{% block content %}
     <h1>Lista de Tareas</h1>
-    <ul>
+    <table>
+        <tr>
+            <th>Título</th>
+            <th>Descripción</th>
+            <th>Categoría</th>
+            <th>Realizada</th>
+        </tr>
         {% for tarea in tareas %}
-            <li>
-                <a href="{% url 'ver_tarea' tarea.id %}">{{ tarea.titulo }}</a>
-                <a href="{% url 'editar_tarea' tarea.id %}">Editar</a>
-                <a href="{% url 'borrar_tarea' tarea.id %}">Eliminar</a>
-            </li>
+            <tr class="{% if tarea.categoria.nombre == 'Muy urgente' %}muy-urgente{% elif tarea.categoria.nombre == 'Medio urgente' %}medio-urgente{% elif tarea.categoria.nombre == 'Poco urgente' %}poco-urgente{% endif %}">
+                <td>{{ tarea.titulo }}</td>
+                <td>{{ tarea.descripcion }}</td>
+                <td>{{ tarea.categoria.nombre }}</td>
+                <td>
+                    {% if not tarea.realizada %}
+                        <button class="marcar-realizada" data-tarea-id="{{ tarea.id }}">Marcar como Realizada</button>
+                    {% else %}
+                        <button class="eliminar-tarea" data-tarea-id="{{ tarea.id }}">Eliminar</button>
+                    {% endif %}
+                </td>
+            </tr>
         {% endfor %}
-    </ul>
+    </table>
     <a href="{% url 'crear_tarea' %}">Crear Nueva Tarea</a>
-</body>
-</html>
+{% endblock %}
