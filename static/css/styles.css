@@ -18,6 +18,7 @@ body {
 .navbar {
   background-color: #4682b4; /* Azul acero */
   padding: 10px;
+  text-align: center; /* Centra el contenido de la barra de navegación */
 }
 
 .navbar a {
@@ -179,6 +180,26 @@ th {
 }
 
 /* Estilos para las filas de tareas marcadas como realizadas */
-tr.tarea-realizada {
-  background-color: lightgreen;
+.tarea-realizada {
+    background-color: #d4edda; /* Color verde de fondo */
+}
+
+header {
+            text-align: center; /* Alinea el contenido al centro */
+}
+        
+.navbar ul {
+  list-style-type: none; /* Quita los estilos de lista */
+  padding: 0;
+  margin: 0 auto; /* Centra la lista horizontalmente */
+}
+
+.navbar ul li {
+  display: inline; /* Muestra los elementos de la lista en línea */
+  margin-right: 20px; /* Espacio entre elementos */
+}
+
+.navbar ul li a {
+  text-decoration: none; /* Quita la decoración del enlace */
+  color: white;
 }

@@ -13,6 +13,6 @@ class Tarea(models.Model):
     descripcion = models.TextField()
     fecha_creacion = models.DateTimeField(auto_now_add=True)
     categoria = models.ForeignKey(Categoria, on_delete=models.CASCADE, related_name='tareas')
-
+    fecha_fin = models.DateField(blank=True, null=True)
     def __str__(self):
         return self.titulo

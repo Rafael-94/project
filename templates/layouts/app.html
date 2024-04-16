@@ -12,6 +12,11 @@
         <!-- Barra de navegación -->
         <nav>
             <!-- Contenido de la barra de navegación -->
+            <ul>
+                <li><a href="{% url 'index' %}"><i class="fa fa-home"></i> Inicio</a></li>
+                <li><a href="{% url 'lista_tareas' %}">Lista de Tareas</a></li>
+                <li><a href="{% url 'crear_tarea' %}">Crear Tarea</a></li>
+            </ul>
         </nav>
     </header>
 

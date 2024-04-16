@@ -4,27 +4,30 @@
 
 {% block content %}
     <h1>Lista de Tareas</h1>
-    <table>
-        <tr>
-            <th>Título</th>
-            <th>Descripción</th>
-            <th>Categoría</th>
-            <th>Realizada</th>
+<table>
+    <tr>
+        <th>Título</th>
+        <th>Descripción</th>
+        <th>Categoría</th>
+        <th>Realizada</th>
+        <th>Fecha de Finalización</th> <!--Columna para la fecha de finalización -->
+        <th>Acciones</th>
+    </tr>
+    {% for tarea in tareas %}
+        <tr class="{% if tarea.categoria.nombre == 'Muy urgente' %}muy-urgente{% elif tarea.categoria.nombre == 'Medio urgente' %}medio-urgente{% elif tarea.categoria.nombre == 'Poco urgente' %}poco-urgente{% endif %} {% if tarea.realizada %}tarea-realizada{% endif %}">
+            <td>{{ tarea.titulo }}</td>
+            <td>{{ tarea.descripcion }}</td>
+            <td>{{ tarea.categoria.nombre }}</td>
+            <td>
+                <input type="checkbox" class="tarea-realizada-checkbox" data-tarea-id="{{ tarea.id }}" {% if tarea.realizada %}checked{% endif %}>
+            </td>
+            <td>{{ tarea.fecha_fin }}</td> <!-- Mostrar la fecha de finalización -->
+            <td>
+                <button class="guardar-tarea" data-tarea-id="{{ tarea.id }}">Guardar</button>
+            </td>
         </tr>
-        {% for tarea in tareas %}
-            <tr class="{% if tarea.categoria.nombre == 'Muy urgente' %}muy-urgente{% elif tarea.categoria.nombre == 'Medio urgente' %}medio-urgente{% elif tarea.categoria.nombre == 'Poco urgente' %}poco-urgente{% endif %}">
-                <td>{{ tarea.titulo }}</td>
-                <td>{{ tarea.descripcion }}</td>
-                <td>{{ tarea.categoria.nombre }}</td>
-                <td>
-                    {% if not tarea.realizada %}
-                        <button class="marcar-realizada" data-tarea-id="{{ tarea.id }}">Marcar como Realizada</button>
-                    {% else %}
-                        <button class="eliminar-tarea" data-tarea-id="{{ tarea.id }}">Eliminar</button>
-                    {% endif %}
-                </td>
-            </tr>
-        {% endfor %}
-    </table>
+    {% endfor %}
+</table>
+
     <a href="{% url 'crear_tarea' %}">Crear Nueva Tarea</a>
 {% endblock %}

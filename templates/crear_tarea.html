@@ -7,6 +7,10 @@
     <form method="post">
         {% csrf_token %}
         {{ form.as_p }}
+        <div class="form-group">
+            <label for="id_fecha_fin">Fecha de Finalización:</label>
+            <input type="date" id="id_fecha_fin" name="fecha_fin" required>
+        </div>
         <button type="submit">Guardar</button>
     </form>
 {% endblock %}
